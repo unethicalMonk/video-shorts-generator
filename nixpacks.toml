@@ -1,2 +1,5 @@
 [phases.setup]
-nixPkgs = ["ffmpeg", "pkg-config"]
+nixPkgs = ["python312", "ffmpeg", "pkg-config"]
+
+[start]
+cmd = "gunicorn -w 1 -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:$PORT"
