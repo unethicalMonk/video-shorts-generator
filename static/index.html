@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Clipper</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+      background: #f4f4f4;
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Video Clipper</h1>
+  <form id="clipForm" action="/upload/" method="post" enctype="multipart/form-data">
+    <label for="file">Choose Video File:</label>
+    <input type="file" id="file" name="file" accept="video/*" required>
+
+    <label for="num_clips">Number of Clips:</label>
+    <input type="number" id="num_clips" name="num_clips" min="1" value="5" required>
+
+    <label for="min_dur">Min Duration (seconds):</label>
+    <input type="number" id="min_dur" name="min_dur" step="0.1" value="10.0" required>
+
+    <label for="max_dur">Max Duration (seconds):</label>
+    <input type="number" id="max_dur" name="max_dur" step="0.1" value="20.0" required>
+
+    <button type="submit">Upload & Generate Clips</button>
+  </form>
+</body>
+</html>
