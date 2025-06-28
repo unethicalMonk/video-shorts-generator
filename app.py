@@ -19,7 +19,11 @@ async def serve_form():
             return f.read()
     except Exception as e:
         return HTMLResponse(f"<h1>Error loading index.html</h1><pre>{e}</pre>", status_code=500)
+    
 
+# Ensure necessary folders exist on startup
+os.makedirs("uploads", exist_ok=True)
+os.makedirs("clips", exist_ok=True)
 
 
 @app.post("/upload/")
